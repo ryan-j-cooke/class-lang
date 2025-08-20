@@ -75,7 +75,6 @@
         }
 
         .word-card {
-            position: relative;
 			background-color: white;
             flex: 1 1 200px;
             max-width: 45%;
@@ -161,34 +160,6 @@
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
         }
 
-        .left-card-bg {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: -172px;
-            transform: rotate(-5deg); /* tilt slightly backward to the left */
-            transform-origin: center center; /* pivot point */
-        }
-
-        .left-card-bg-img {
-            height: 100%;
-            width: auto;
-        }
-
-        .right-card-bg {
-            position: absolute;
-            display: flex;
-            flex-direction: column-reverse;
-            top: 0;
-            bottom: -14px;
-            right: -124px;
-        }
-
-        .right-card-bg-img {
-            height: 250px;
-            width: auto;
-        }
-
         @keyframes bounce {
             0%, 100% {
                 transform: translateY(0);
@@ -238,12 +209,6 @@
                 :class="{highlight: highlightSide==='left'}"
                 @click="highlightSide='left'"
             >
-                <div class="left-card-bg">
-
-                    <img class="left-card-bg-img" src="./_deps/images/left-monkey.png" />
-
-                </div>
-
                 <div class="emojie-cont">{{ currentQuestion.left?.emoji }}</div>
 
                 <span>{{ currentQuestion.left?.ml }}</span>
@@ -254,12 +219,6 @@
                 :class="{highlight: highlightSide==='right'}"
                 @click="highlightSide='right'"
             >
-                <div class="right-card-bg">
-
-                    <img class="right-card-bg-img" src="./_deps/images/ele-right.png" />
-
-                </div>
-
                 <div class="emojie-cont">{{ currentQuestion.left?.emoji }}</div>
 
                 <span>{{ currentQuestion.right?.ml }}</span>
