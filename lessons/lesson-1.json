@@ -1,0 +1,729 @@
+[
+    {
+        "actor": "teacher",
+        "ml": "สวัสดี! คุณชื่ออะไร?",
+        "ll": "Hello! What’s your name?",
+        "vocab": {
+            "hello": {
+                "ml": "สวัสดี",
+                "ll": "Hello",
+                "rom": "həˈloʊ",
+                "sSegs": [
+                    { "ll": "hel", "parts": ["h", "ɛ"] },
+                    { "ll": "lo", "parts": ["l", "oʊ"] }
+                ]
+            },
+            "what’s": {
+                "ml": "อะไร",
+                "ll": "What’s",
+                "rom": "wʌts",
+                "sSegs": [
+                    { "ll": "what’s", "parts": ["w", "ʌ", "t", "s"] }
+                ]
+            },
+            "your": {
+                "ml": "ของคุณ",
+                "ll": "your",
+                "rom": "jʊər",
+                "sSegs": [
+                    { "ll": "your", "parts": ["j", "ʊ", "ɹ"] }
+                ]
+            },
+            "name": {
+                "ml": "ชื่อ",
+                "ll": "name",
+                "rom": "neɪm",
+                "sSegs": [
+                    { "ll": "name", "parts": ["n", "eɪ", "m"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "child",
+        "ml": "สวัส, ฉันชื่อ _____",
+        "ll": "Hi, my name is _____",
+        "vocab": {
+            "hi": {
+                "ml": "สวัสดี",
+                "ll": "Hi",
+                "rom": "haɪ",
+                "sSegs": [
+                    { "ll": "hi", "parts": ["h", "aɪ"] }
+                ]
+            },
+            "hello": {
+                "ml": "สวัสดี",
+                "ll": "Hello",
+                "rom": "həˈloʊ",
+                "sSegs": [
+                    { "ll": "hel", "parts": ["h", "ɛ"] },
+                    { "ll": "lo", "parts": ["l", "oʊ"] }
+                ]
+            },
+            "what’s": {
+                "ml": "อะไร",
+                "ll": "What’s",
+                "rom": "wʌts",
+                "sSegs": [
+                    { "ll": "what’s", "parts": ["w", "ʌ", "t", "s"] }
+                ]
+            },
+            "your": {
+                "ml": "ของคุณ",
+                "ll": "your",
+                "rom": "jʊər",
+                "sSegs": [
+                    { "ll": "your", "parts": ["j", "ʊ", "ɹ"] }
+                ]
+            },
+            "name": {
+                "ml": "ชื่อ",
+                "ll": "name",
+                "rom": "neɪm",
+                "sSegs": [
+                    { "ll": "name", "parts": ["n", "eɪ", "m"] }
+                ]
+            },
+            "my name is": {
+                "ml": "ฉันชื่อ",
+                "ll": "My name is",
+                "rom": "maɪ neɪm ɪz",
+                "sSegs": [
+                    { "ll": "my", "parts": ["m", "aɪ"] },
+                    { "ll": "name", "parts": ["n", "eɪ", "m"] },
+                    { "ll": "is", "parts": ["ɪ", "z"] }
+                ]
+            }
+        },
+        "questions": [
+            { "ml": "อายุเท่าไหร่", "ll": "how old are", "rom": "haʊ oʊld ɑɹ", "emoji": "⏳❓" },
+            { "ml": "คุณ", "ll": "you", "rom": "juː", "emoji": "👉" },
+            { "ml": "อายุเท่าไหร่", "ll": "how old are", "rom": "haʊ oʊld ɑɹ", "emoji": "⏳❓" },
+            { "ml": "คุณ", "ll": "you", "rom": "juː", "emoji": "👉" },
+            { "ml": "คุณอายุเท่าไหร่?", "ll": "how old are you", "rom": "haʊ oʊld ɑɹ juː", "emoji": "👶⏳❓" }
+        ]
+    },
+    {
+        "actor": "teacher",
+        "ml": "สวัสดี _____",
+        "ll": "Hi, _____",
+        "vocab": {
+            "hi": {
+                "ml": "สวัสดี",
+                "ll": "Hi",
+                "rom": "haɪ",
+                "sSegs": [
+                    { "ll": "hi", "parts": ["h", "aɪ"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "teacher",
+        "ml": "คุณอายุเท่าไหร่?",
+        "ll": "How old are you?",
+        "vocab": {
+            "hi": {
+                "ml": "สวัสดี",
+                "ll": "Hi",
+                "rom": "haɪ",
+                "sSegs": [
+                    { "ll": "hi", "parts": ["h", "aɪ"] }
+                ]
+            },
+            "you": {
+                "ml": "คุณ",
+                "ll": "you",
+                "rom": "juː",
+                "sSegs": [
+                    { "ll": "you", "parts": ["j", "uː"] }
+                ]
+            },
+            "how old are ___?": {
+                "ml": "คุณอายุเท่าไหร่?",
+                "ll": "How old are ___?",
+                "rom": "haʊ oʊld ɑɹ",
+                "sSegs": [
+                    { "ll": "how", "parts": ["h", "aʊ"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] },
+                    { "ll": "are", "parts": ["ɑ", "ɹ"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "child",
+        "ml": "ฉันอายุห้าขวบ",
+        "ll": "I am five years old.",
+        "vocab": {
+            "i am": {
+                "ml": "ฉันอายุ",
+                "ll": "I am",
+                "rom": "aɪ æm",
+                "emoji": "👦📏",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] },
+                    { "ll": "am", "parts": ["æ", "m"] }
+                ]
+            },
+            "1 years": {
+                "ml": "หนึ่งขวบ",
+                "ll": "one year old",
+                "rom": "wʌn jɪr oʊld",
+                "emoji": "👶1️⃣",
+                "sSegs": [
+                    { "ll": "one", "parts": ["w", "ʌ", "n"] },
+                    { "ll": "year", "parts": ["j", "ɪr"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "2 years": {
+                "ml": "สองขวบ",
+                "ll": "two years old",
+                "rom": "tuː jɪrz oʊld",
+                "emoji": "👶2️⃣",
+                "sSegs": [
+                    { "ll": "two", "parts": ["t", "uː"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "3 years": {
+                "ml": "สามขวบ",
+                "ll": "three years old",
+                "rom": "θriː jɪrz oʊld",
+                "emoji": "👶3️⃣",
+                "sSegs": [
+                    { "ll": "three", "parts": ["θ", "r", "iː"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "4 years": {
+                "ml": "สี่ขวบ",
+                "ll": "four years old",
+                "rom": "fɔːr jɪrz oʊld",
+                "emoji": "👶4️⃣",
+                "sSegs": [
+                    { "ll": "four", "parts": ["f", "ɔːr"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "5 years": {
+                "ml": "ห้าขวบ",
+                "ll": "five years old",
+                "rom": "faɪv jɪrz oʊld",
+                "emoji": "👶5️⃣",
+                "sSegs": [
+                    { "ll": "five", "parts": ["f", "aɪ", "v"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "6 years": {
+                "ml": "หกขวบ",
+                "ll": "six years old",
+                "rom": "sɪks jɪrz oʊld",
+                "emoji": "👶6️⃣",
+                "sSegs": [
+                    { "ll": "six", "parts": ["s", "ɪ", "k", "s"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "7 years": {
+                "ml": "เจ็ดขวบ",
+                "ll": "seven years old",
+                "rom": "ˈsɛvən jɪrz oʊld",
+                "emoji": "👶7️⃣",
+                "sSegs": [
+                    { "ll": "sev", "parts": ["s", "ɛ"] },
+                    { "ll": "en", "parts": ["v", "ən"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "8 years": {
+                "ml": "แปดขวบ",
+                "ll": "eight years old",
+                "rom": "eɪt jɪrz oʊld",
+                "emoji": "👶8️⃣",
+                "sSegs": [
+                    { "ll": "eight", "parts": ["eɪ", "t"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "9 years": {
+                "ml": "เก้าขวบ",
+                "ll": "nine years old",
+                "rom": "naɪn jɪrz oʊld",
+                "emoji": "👶9️⃣",
+                "sSegs": [
+                    { "ll": "nine", "parts": ["n", "aɪ", "n"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            },
+            "10 years": {
+                "ml": "สิบขวบ",
+                "ll": "ten years old",
+                "rom": "tɛn jɪrz oʊld",
+                "emoji": "👶🔟",
+                "sSegs": [
+                    { "ll": "ten", "parts": ["t", "ɛ", "n"] },
+                    { "ll": "years", "parts": ["j", "ɪr", "z"] },
+                    { "ll": "old", "parts": ["oʊ", "l", "d"] }
+                ]
+            }
+        },
+        "questions": [
+            { "ml": "ฉันอายุ", "ll": "I am", "rom": "aɪ æm", "emoji": "👶" },
+
+            { "ml": "หนึ่งขวบ", "ll": "one year old", "rom": "wʌn jɪr oʊld", "emoji": "👶1️⃣" },
+            { "ml": "ฉันอายุหนึ่งขวบ", "ll": "I am one year old.", "rom": "aɪ æm wʌn jɪr oʊld", "emoji": "👶1️⃣" },
+
+            { "ml": "สองขวบ", "ll": "two years old", "rom": "tuː jɪrz oʊld", "emoji": "👶2️⃣" },
+            { "ml": "ฉันอายุสองขวบ", "ll": "I am two years old.", "rom": "aɪ æm tuː jɪrz oʊld", "emoji": "👶2️⃣" },
+
+            { "ml": "สามขวบ", "ll": "three years old", "rom": "θriː jɪrz oʊld", "emoji": "👶3️⃣" },
+            { "ml": "ฉันอายุสามขวบ", "ll": "I am three years old.", "rom": "aɪ æm θriː jɪrz oʊld", "emoji": "👶3️⃣" },
+
+            { "ml": "สี่ขวบ", "ll": "four years old", "rom": "fɔːr jɪrz oʊld", "emoji": "👶4️⃣" },
+            { "ml": "ฉันอายุสี่ขวบ", "ll": "I am four years old.", "rom": "aɪ æm fɔːr jɪrz oʊld", "emoji": "👶4️⃣" },
+
+            { "ml": "ห้าขวบ", "ll": "five years old", "rom": "faɪv jɪrz oʊld", "emoji": "👶5️⃣" },
+            { "ml": "ฉันอายุห้าขวบ", "ll": "I am five years old.", "rom": "aɪ æm faɪv jɪrz oʊld", "emoji": "👶5️⃣" },
+
+            { "ml": "หกขวบ", "ll": "six years old", "rom": "sɪks jɪrz oʊld", "emoji": "👶6️⃣" },
+            { "ml": "ฉันอายุหกขวบ", "ll": "I am six years old.", "rom": "aɪ æm sɪks jɪrz oʊld", "emoji": "👶6️⃣" },
+
+            { "ml": "เจ็ดขวบ", "ll": "seven years old", "rom": "ˈsɛvən jɪrz oʊld", "emoji": "👶7️⃣" },
+            { "ml": "ฉันอายุเจ็ดขวบ", "ll": "I am seven years old.", "rom": "aɪ æm ˈsɛvən jɪrz oʊld", "emoji": "👶7️⃣" },
+
+            { "ml": "แปดขวบ", "ll": "eight years old", "rom": "eɪt jɪrz oʊld", "emoji": "👶8️⃣" },
+            { "ml": "ฉันอายุแปดขวบ", "ll": "I am eight years old.", "rom": "aɪ æm eɪt jɪrz oʊld", "emoji": "👶8️⃣" },
+
+            { "ml": "เก้าขวบ", "ll": "nine years old", "rom": "naɪn jɪrz oʊld", "emoji": "👶9️⃣" },
+            { "ml": "ฉันอายุเก้าขวบ", "ll": "I am nine years old.", "rom": "aɪ æm naɪn jɪrz oʊld", "emoji": "👶9️⃣" },
+
+            { "ml": "สิบขวบ", "ll": "ten years old", "rom": "tɛn jɪrz oʊld", "emoji": "👶🔟" },
+            { "ml": "ฉันอายุสิบขวบ", "ll": "I am ten years old.", "rom": "aɪ æm tɛn jɪrz oʊld", "emoji": "👶🔟" }
+        ]
+    },
+    {
+        "actor": "teacher",
+        "ml": "ยินดีที่ได้รู้จัก!",
+        "ll": "Nice to meet you!",
+        "vocab": {
+            "nice": {
+                "ml": "ยินดี",
+                "ll": "nice",
+                "rom": "naɪs",
+                "sSegs": [
+                    { "ll": "nice", "parts": ["n", "aɪ", "s"] }
+                ]
+            },
+            "to meet": {
+                "ml": "ที่ได้พบ",
+                "ll": "to meet",
+                "rom": "tuː miːt",
+                "sSegs": [
+                    { "ll": "to", "parts": ["t", "uː"] },
+                    { "ll": "meet", "parts": ["m", "iː", "t"] }
+                ]
+            },
+            "you": {
+                "ml": "คุณ",
+                "ll": "you",
+                "rom": "juː",
+                "sSegs": [
+                    { "ll": "you", "parts": ["j", "uː"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "child",
+        "ml": "ยินดีที่ได้รู้จัก!",
+        "ll": "Nice to meet you!",
+        "vocab": {
+            "nice": {
+            "ml": "ยินดี",
+            "ll": "nice",
+            "rom": "naɪs",
+            "emoji": "🌸",
+            "sSegs": [
+                { "ll": "nice", "parts": ["n", "aɪ", "s"] }
+            ]
+            },
+            "to meet": {
+            "ml": "ที่ได้พบ",
+            "ll": "to meet",
+            "rom": "tuː miːt",
+            "emoji": "🤝",
+            "sSegs": [
+                { "ll": "to", "parts": ["t", "uː"] },
+                { "ll": "meet", "parts": ["m", "iː", "t"] }
+            ]
+            },
+            "you": {
+            "ml": "คุณ",
+            "ll": "you",
+            "rom": "juː",
+            "emoji": "🙂",
+            "sSegs": [
+                { "ll": "you", "parts": ["j", "uː"] }
+            ]
+            },
+            "nice to meet": {
+            "ml": "ยินดีที่ได้พบ",
+            "ll": "nice to meet",
+            "rom": "naɪs tuː miːt",
+            "emoji": "🌸🤝",
+            "sSegs": [
+                { "ll": "nice", "parts": ["n", "aɪ", "s"] },
+                { "ll": "to", "parts": ["t", "uː"] },
+                { "ll": "meet", "parts": ["m", "iː", "t"] }
+            ]
+            },
+            "nice to meet you": {
+            "ml": "ยินดีที่ได้รู้จัก!",
+            "ll": "nice to meet you!",
+            "rom": "naɪs tuː miːt juː",
+            "emoji": "🌸🤝🙂",
+            "sSegs": [
+                { "ll": "nice", "parts": ["n", "aɪ", "s"] },
+                { "ll": "to", "parts": ["t", "uː"] },
+                { "ll": "meet", "parts": ["m", "iː", "t"] },
+                { "ll": "you", "parts": ["j", "uː"] }
+            ]
+            }
+        },
+        "questions": [
+            { "ml": "ยินดี", "ll": "nice", "rom": "naɪs", "emoji": "🌸" },
+
+            { "ml": "ที่ได้พบ", "ll": "to meet", "rom": "tuː miːt", "emoji": "🤝" },
+            { "ml": "ยินดี", "ll": "nice", "rom": "naɪs", "emoji": "🌸" },
+
+            { "ml": "คุณ", "ll": "you", "rom": "juː", "emoji": "🙂" },
+            { "ml": "ยินดี", "ll": "nice", "rom": "naɪs", "emoji": "🌸" },
+            { "ml": "ที่ได้พบ", "ll": "to meet", "rom": "tuː miːt", "emoji": "🤝" },
+
+            { "ml": "ยินดีที่ได้พบ", "ll": "nice to meet", "rom": "naɪs tuː miːt", "emoji": "🌸🤝" },
+
+            { "ml": "คุณ", "ll": "you", "rom": "juː", "emoji": "🙂" },
+            { "ml": "ที่ได้พบ", "ll": "to meet", "rom": "tuː miːt", "emoji": "🤝" },
+            { "ml": "ยินดี", "ll": "nice", "rom": "naɪs", "emoji": "🌸" },
+
+            { "ml": "ยินดีที่ได้พบ", "ll": "nice to meet", "rom": "naɪs tuː miːt", "emoji": "🌸🤝" }
+        ]
+    },
+    {
+        "actor": "teacher",
+        "ml": "คุณอยากได้อะไร?",
+        "ll": "What do you want?",
+        "vocab": {
+            "what": {
+                "ml": "อะไร",
+                "ll": "what",
+                "rom": "wʌt",
+                "sSegs": [
+                    { "ll": "what", "parts": ["w", "ʌ", "t"] }
+                ]
+            },
+            "do you": {
+                "ml": "คุณ",
+                "ll": "do you",
+                "rom": "duː juː",
+                "sSegs": [
+                    { "ll": "do", "parts": ["d", "uː"] },
+                    { "ll": "you", "parts": ["j", "uː"] }
+                ]
+            },
+            "want": {
+                "ml": "อยากได้",
+                "ll": "want",
+                "rom": "wɑnt",
+                "sSegs": [
+                    { "ll": "want", "parts": ["w", "ɑ", "n", "t"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "child",
+        "ml": "ฉันอยากได้น้ำ",
+        "ll": "I want water.",
+        "vocab": {
+            "i": {
+                "ml": "ฉัน",
+                "ll": "I",
+                "rom": "aɪ",
+                "emoji": "👦",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] }
+                ]
+            },
+            "want": {
+                "ml": "อยากได้",
+                "ll": "want",
+                "rom": "wɑnt",
+                "emoji": "✨",
+                "sSegs": [
+                    { "ll": "want", "parts": ["w", "ɑ", "n", "t"] }
+                ]
+            },
+            "water": {
+                "ml": "น้ำ",
+                "ll": "water",
+                "rom": "ˈwɔtər",
+                "emoji": "💧",
+                "sSegs": [
+                    { "ll": "water", "parts": ["w", "ɔ", "t", "ər"] }
+                ]
+            },
+            "i want": {
+                "ml": "ฉันอยากได้",
+                "ll": "I want",
+                "rom": "aɪ wɑnt",
+                "emoji": "👦✨",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] },
+                    { "ll": "want", "parts": ["w", "ɑ", "n", "t"] }
+                ]
+            },
+            "i want water": {
+                "ml": "ฉันอยากได้น้ำ",
+                "ll": "I want water",
+                "rom": "aɪ wɑnt ˈwɔtər",
+                "emoji": "👦✨💧",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] },
+                    { "ll": "want", "parts": ["w", "ɑ", "n", "t"] },
+                    { "ll": "water", "parts": ["w", "ɔ", "t", "ər"] }
+                ]
+            }
+        },
+        "questions": [
+            { "ml": "ฉัน", "ll": "I", "rom": "aɪ", "emoji": "👦" },
+
+            { "ml": "อยากได้", "ll": "want", "rom": "wɑnt", "emoji": "✨" },
+            { "ml": "ฉัน", "ll": "I", "rom": "aɪ", "emoji": "👦" },
+
+            { "ml": "น้ำ", "ll": "water", "rom": "ˈwɔtər", "emoji": "💧" },
+            { "ml": "ฉัน", "ll": "I", "rom": "aɪ", "emoji": "👦" },
+            { "ml": "อยากได้", "ll": "want", "rom": "wɑnt", "emoji": "✨" },
+
+            { "ml": "ฉันอยากได้", "ll": "I want", "rom": "aɪ wɑnt", "emoji": "👦✨" },
+
+            { "ml": "น้ำ", "ll": "water", "rom": "ˈwɔtər", "emoji": "💧" },
+            { "ml": "อยากได้", "ll": "want", "rom": "wɑnt", "emoji": "✨" },
+
+            { "ml": "ฉันอยากได้น้ำ", "ll": "I want water", "rom": "aɪ wɑnt ˈwɔtər", "emoji": "👦✨💧" }
+        ]
+    },
+    {
+        "actor": "teacher",
+        "ml": "พูดว่า ‘ฉันอยากเล่น’ ได้ไหม?",
+        "ll": "Can you say: ‘I want to play’?",
+        "vocab": {
+            "i": {
+                "ml": "ฉัน",
+                "ll": "I",
+                "rom": "aɪ",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] }
+                ]
+            },
+            "want to": {
+                "ml": "อยาก",
+                "ll": "want to",
+                "rom": "wɑnt tuː",
+                "sSegs": [
+                    { "ll": "want", "parts": ["w", "ɑ", "n", "t"] },
+                    { "ll": "to", "parts": ["t", "uː"] }
+                ]
+            },
+            "play": {
+                "ml": "เล่น",
+                "ll": "play",
+                "rom": "pleɪ",
+                "sSegs": [
+                    { "ll": "play", "parts": ["p", "l", "eɪ"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "teacher",
+        "ml": "คุณชอบอะไร?",
+        "ll": "What do you like?",
+        "vocab": {
+            "what": {
+                "ml": "อะไร",
+                "ll": "what",
+                "rom": "wʌt",
+                "sSegs": [
+                    { "ll": "what", "parts": ["w", "ʌ", "t"] }
+                ]
+            },
+            "do you": {
+                "ml": "คุณ",
+                "ll": "do you",
+                "rom": "duː juː",
+                "sSegs": [
+                    { "ll": "do", "parts": ["d", "uː"] },
+                    { "ll": "you", "parts": ["j", "uː"] }
+                ]
+            },
+            "like": {
+                "ml": "ชอบ",
+                "ll": "like",
+                "rom": "laɪk",
+                "sSegs": [
+                    { "ll": "like", "parts": ["l", "aɪ", "k"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "child",
+        "ml": "ฉันชอบไอติม",
+        "ll": "I like ice cream.",
+        "vocab": {
+            "i": {
+                "ml": "ฉัน",
+                "ll": "I",
+                "rom": "aɪ",
+                "emoji": "👦",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] }
+                ]
+            },
+            "like": {
+                "ml": "ชอบ",
+                "ll": "like",
+                "rom": "laɪk",
+                "emoji": "❤️",
+                "sSegs": [
+                    { "ll": "like", "parts": ["l", "aɪ", "k"] }
+                ]
+            },
+            "ice cream": {
+                "ml": "ไอติม",
+                "ll": "ice cream",
+                "rom": "aɪs kriːm",
+                "emoji": "🍦",
+                "sSegs": [
+                    { "ll": "ice", "parts": ["aɪ", "s"] },
+                    { "ll": "cream", "parts": ["k", "r", "iː", "m"] }
+                ]
+            },
+            "i like": {
+                "ml": "ฉันชอบ",
+                "ll": "I like",
+                "rom": "aɪ laɪk",
+                "emoji": "👦❤️",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] },
+                    { "ll": "like", "parts": ["l", "aɪ", "k"] }
+                ]
+            },
+            "i like ice cream": {
+                "ml": "ฉันชอบไอติม",
+                "ll": "I like ice cream",
+                "rom": "aɪ laɪk aɪs kriːm",
+                "emoji": "👦❤️🍦",
+                "sSegs": [
+                    { "ll": "I", "parts": ["aɪ"] },
+                    { "ll": "like", "parts": ["l", "aɪ", "k"] },
+                    { "ll": "ice cream", "parts": ["aɪ", "s", "k", "r", "iː", "m"] }
+                ]
+            }
+        },
+        "questions": [
+            { "ml": "ฉัน", "ll": "I", "rom": "aɪ", "emoji": "👦" },
+
+            { "ml": "ชอบ", "ll": "like", "rom": "laɪk", "emoji": "❤️" },
+            { "ml": "ฉัน", "ll": "I", "rom": "aɪ", "emoji": "👦" },
+
+            { "ml": "ไอติม", "ll": "ice cream", "rom": "aɪs kriːm", "emoji": "🍦" },
+            { "ml": "ฉัน", "ll": "I", "rom": "aɪ", "emoji": "👦" },
+            { "ml": "ชอบ", "ll": "like", "rom": "laɪk", "emoji": "❤️" },
+
+            { "ml": "ฉันชอบ", "ll": "I like", "rom": "aɪ laɪk", "emoji": "👦❤️" },
+
+            { "ml": "ไอติม", "ll": "ice cream", "rom": "aɪs kriːm", "emoji": "🍦" },
+            { "ml": "ชอบ", "ll": "like", "rom": "laɪk", "emoji": "❤️" },
+
+            { "ml": "ฉันชอบไอติม", "ll": "I like ice cream", "rom": "aɪ laɪk aɪs kriːm", "emoji": "👦❤️🍦" }
+        ]
+    },
+    {
+        "actor": "teacher",
+        "ml": "เก่งมาก!",
+        "ll": "Good job!",
+        "vocab": {
+            "good job": {
+                "ml": "เก่งมาก",
+                "ll": "good job",
+                "rom": "ɡʊd dʒɑb",
+                "sSegs": [
+                    { "ll": "good", "parts": ["ɡ", "ʊ", "d"] },
+                    { "ll": "job", "parts": ["dʒ", "ɑ", "b"] }
+                ]
+            }
+        }
+    },
+    {
+        "actor": "child",
+        "ml": "เก่งมาก!",
+        "ll": "Good job!",
+        "vocab": {
+            "good": {
+                "ml": "ดี",
+                "ll": "good",
+                "rom": "ɡʊd",
+                "emoji": "⭐",
+                "sSegs": [
+                    { "ll": "good", "parts": ["ɡ", "ʊ", "d"] }
+                ]
+            },
+            "job": {
+                "ml": "งาน",
+                "ll": "job",
+                "rom": "dʒɑb",
+                "emoji": "👏",
+                "sSegs": [
+                    { "ll": "job", "parts": ["dʒ", "ɑ", "b"] }
+                ]
+            },
+            "good job": {
+                "ml": "เก่งมาก!",
+                "ll": "good job!",
+                "rom": "ɡʊd dʒɑb",
+                "emoji": "⭐👏",
+                "sSegs": [
+                    { "ll": "good", "parts": ["ɡ", "ʊ", "d"] },
+                    { "ll": "job", "parts": ["dʒ", "ɑ", "b"] }
+                ]
+            }
+        },
+        "questions": [
+            { "ml": "ดี", "ll": "good", "rom": "ɡʊd", "emoji": "⭐" },
+
+            { "ml": "งาน", "ll": "job", "rom": "dʒɑb", "emoji": "👏" },
+            { "ml": "ดี", "ll": "good", "rom": "ɡʊd", "emoji": "⭐" },
+
+            { "ml": "เก่งมาก!", "ll": "good job!", "rom": "ɡʊd dʒɑb", "emoji": "⭐👏" },
+
+            { "ml": "งาน", "ll": "job", "rom": "dʒɑb", "emoji": "👏" },
+            { "ml": "ดี", "ll": "good", "rom": "ɡʊd", "emoji": "⭐" },
+
+            { "ml": "เก่งมาก!", "ll": "good job!", "rom": "ɡʊd dʒɑb", "emoji": "⭐👏" }
+        ]
+    }
+]

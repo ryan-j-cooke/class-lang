@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<title>
+	Login page
+</title>
+</head>
+
+<body>
+<script src="globals.js"></script>
+
+<script language="javascript">
+
+	let user = prompt('Username: ', '');
+
+	let pass = '';
+
+	if (sha256(user) == '84983c60f7daadc1cb8698621f802c0d9f9a3c3c295c810748fb048115c186ec')
+	{
+		user = '';
+
+		pass = prompt('Password: ', '');
+
+		if (sha256(pass) != '1134622dcf5270b91952f9b877ef675e0063cafc882abbad9209f3e71e28f81d')
+		{
+			alert('Password was incorrect');
+
+			deleteAllCookies();
+
+			window.location = '/';
+		}
+		else
+		{
+			setIsLoggedIn();
+
+			window.location = 'resume.html';
+		}
+	}
+	else
+	{
+		alert('User name was incorrect');
+
+		window.location = '/';
+	}
+
+</script>
+</body>
+</html>

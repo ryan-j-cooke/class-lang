@@ -1,0 +1,189 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: black !important;
+    background-image: url('./_deps/images/child-bg.jpg');
+}
+
+#overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: black;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+#app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+}
+
+.lesson-container {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+
+    /* Fixed height to prevent buttons from jumping */
+    min-height: 500px; /* adjust this to fit your tallest content */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* pushes buttons to bottom */
+}
+
+.teacher-prompt-cont {
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.teacher-prompt {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgb(65, 64, 64);
+    width: 100%;
+}
+
+.game-row {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    height: 250px;
+    align-items: stretch;
+}
+
+.word-card {
+    flex: 1 1 200px; /* flex-grow, flex-shrink, base width */
+    max-width: 45%;
+    padding: 30px;
+    border-radius: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgb(65, 64, 64);
+}
+
+.word-card.highlight {
+    transform: scale(1.15); /* grows without breaking layout */
+    box-shadow: 0 0 25px 8px #ffd700;
+    z-index: 1; /* ensures highlighted card is above */
+}
+
+.word-card.right-card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    user-select: none;
+
+    /* White to red gradient */
+    background: white;
+    color: black;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-size: 2.5rem;
+}
+
+.word-card.left-card {
+    flex: 1;
+    padding: 30px;
+    border-radius: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    user-select: none;
+
+    /* Green to white gradient */
+    background: white;
+    color: black;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.word-card.left-card, .word-card.right-card {
+    flex: 1 1 40%;
+    padding: 50px;
+    font-size: 2.5rem;
+}
+
+.word-card.left-card:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Hover effect */
+.word-card:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.word-card.right-card:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.word-card:hover { animation: bounce 0.5s ease; }
+
+.highlight {
+    box-shadow: 0 0 25px 8px #ffd700;
+    transform: scale(1.15) rotate(2deg);
+    font-size: 3rem; /* increase font when highlighted */
+}
+
+.lesson-content {
+    height: 400px; /* fixed height for content area */
+    overflow-y: auto; /* scroll if content is too tall */
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.controls button {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.controls .left-btn { background-color: #ff6f91; }
+
+.controls .right-btn { background-color: #6f5aff; }
+
+.bg-white { background-color: white;}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

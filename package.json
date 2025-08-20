@@ -1,0 +1,32 @@
+{
+	"name": "resume",
+	"version": "1.0.0",
+	"description": "",
+	"main": "globals.js",
+	"scripts": {
+		"dev": "nodemon -e js --watch server.js --exec 'clear; node server.js'",
+		"update-github-profile": "nodemon -e js,twig --watch ./github/ --exec 'clear; node ./github/update-profile.js;'",
+		"preview-profile-md": "nodemon -e js,twig --watch ./github/ --exec 'clear; node ./github/preview-markdown.js'",
+		"build": "echo 'Built';"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@octokit/rest": "^20.0.2",
+		"axios": "^1.6.5",
+		"chokidar": "^3.5.3",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2",
+		"install": "^0.13.0",
+		"linkedin-profile-scraper": "^2.3.1",
+		"live-server": "^1.2.2",
+		"markdown-to-html": "^0.0.13",
+		"node-twig": "^1.2.0",
+		"npm": "^10.3.0",
+		"puppeteer": "^21.11.0",
+		"twig": "^1.17.1",
+		"twing": "^6.0.1",
+		"ws": "^8.16.0"
+	}
+}

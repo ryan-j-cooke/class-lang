@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Converse Languages - Kids</title>
+    <link rel="icon" sizes="192x192" href="./_deps/images/icon.png">
+    <link rel="stylesheet" href="./_deps/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: black !important;
+            background-image: url('./_deps/images/child-bg.jpg');
+        }
+
+        #overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: black;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        #app {
+            position: relative;
+            width: 100vw;
+            height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .lesson-container {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .teacher-prompt-cont {
+            height: 250px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .teacher-prompt {
+            background-color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgb(65, 64, 64);
+            width: 100%;
+        }
+
+        .game-row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            height: 250px;
+            align-items: stretch;
+        }
+
+        .word-card {
+			background-color: white;
+            flex: 1 1 200px;
+            max-width: 45%;
+            padding: 30px;
+            border-radius: 25px;
+            font-size: 290%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgb(65, 64, 64);
+        }
+
+        .word-card.highlight {
+            transform: scale(1.15);
+            box-shadow: 0 0 25px 8px #ffd700;
+            z-index: 1;
+			background-color: #dd5fd3;
+			color: white !important;
+			font-weight: bold;
+        }
+
+        .word-card.left-card:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .word-card.right-card:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .lesson-content {
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .controls button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+
+        .controls .left-btn {
+            background-color: #ff6f91;
+        }
+
+        .controls .right-btn {
+            background-color: #6f5aff;
+        }
+
+        .emojie-cont {
+            background-color: white;
+            border-radius: 15px;        /* rounded corners */
+            padding: 12px 18px;         /* space around emoji */
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;          /* make emoji big */
+            border: 1px solid #ddd;     /* subtle border */
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .emojie-cont:hover,
+        .word-card.highlight .emojie-cont {
+            border-color: #aaa;         /* slightly darker on hover or highlight */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+		@keyframes highlightPulse {
+			0% { transform: scale(1.2); font-size: 2.6rem; }
+    		100% { transform: scale(1.25); font-size: 2.7rem; }
+		}
+
+    </style>
+
+    <script src="./_deps/js/vue.js"></script>
+
+</head>
+
+<body>
+<div id="overlay"></div>
+
+<div id="app" class="lesson-container">
+
+    <div v-if="loading" class="teacher-prompt-cont">
+
+        <div class="teacher-prompt">Loading...</div>
+
+    </div>
+
+    <div v-else>
+
+        <!-- Teacher Prompt -->
+        <div v-if="currentEntry.actor === 'teacher'" class="teacher-prompt-cont">
+
+            <div class="teacher-prompt">{{ currentEntry.ll }}</div>
+
+        </div>
+
+        <!-- Child Vocab -->
+        <div v-if="currentEntry.actor === 'child'" class="game-row">
+
+            <div
+                class="word-card left-card"
+                :class="{highlight: highlightSide==='left'}"
+                @click="highlightSide='left'"
+            >
+                <div class="emojie-cont">{{ currentQuestion.left?.emoji }}</div>
+
+                <span>{{ currentQuestion.left?.ml }}</span>
+
+            </div>
+
+            <div class="word-card right-card"
+                :class="{highlight: highlightSide==='right'}"
+                @click="highlightSide='right'"
+            >
+                <div class="emojie-cont">{{ currentQuestion.left?.emoji }}</div>
+
+                <span>{{ currentQuestion.right?.ml }}</span>
+
+            </div>
+
+        </div>
+
+        <!-- Navigation -->
+        <div class="controls">
+
+            <button class="left-btn" @click="prevEntry">Previous</button>
+
+            <button class="right-btn" @click="nextEntry">Next</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function connectToToDev() {
+    let socket; // Declare the socket variable outside the function to access it for auto-reconnect
+
+    function initWebSocket() {
+        // Connect to the WebSocket server
+        socket = new WebSocket('ws://localhost:2100');
+
+        // Event listener for when the connection is opened
+        socket.addEventListener('open', (event) => {
+            console.log('WebSocket connection opened');
+        });
+
+        // Event listener for when a message is received
+        socket.addEventListener('message', (event) => {
+            // Assuming the message is a simple string
+            const message = event.data;
+
+            if (message === 'reload') {
+                console.log('Received reload message, reloading the page...');
+                location.reload(); // Reload the page
+            }
+        });
+
+        // Event listener for when the connection is closed
+        socket.addEventListener('close', (event) => {
+            console.log('WebSocket connection closed');
+
+            // Attempt to reconnect after a short delay
+            setTimeout(initWebSocket, 2000); // Adjust the delay as needed
+        });
+    }
+
+    // Initialize the WebSocket connection
+    initWebSocket();
+}
+
+new Vue({
+    el:'#app',
+    data:{
+        conversation: [],
+        currentIndex:0,
+        vocabIndex:0,
+        highlightSide:null,
+        loading:true,
+        lessonNumber:1
+    },
+    computed:{
+        currentEntry(){
+            return this.conversation[this.currentIndex] || {};
+        },
+        currentQuestion(){
+            if(this.currentEntry.actor==='child'){
+                const qs = this.currentEntry.questions || [];
+                const q = qs[this.vocabIndex] || {};
+                
+                return {
+                    left: {
+                        emoji: q.emoji,
+                        ml: q.ll || '',
+                    },
+                    right: {
+                        emoji: q.emoji,
+                        ml: q.ml || '',
+                    },
+                };
+            }
+            return {};
+        },
+    },
+    mounted(){
+        connectToToDev();
+
+		document.addEventListener('keydown', (event) => {
+			// Check if Ctrl key is pressed
+			if (event.ctrlKey) {
+				switch (event.key) {
+					case "ArrowLeft":
+						event.preventDefault();
+						this.prevEntry();
+						break;
+
+					case "ArrowRight":
+						event.preventDefault();
+						this.nextEntry();
+						break;
+				}
+			}
+			else {
+				this.handleKeyPress(event);
+			}
+		});
+		
+        this.fetchLesson();
+    },
+    methods:{
+        async fetchLesson() {
+            this.loading = true;
+
+            try{
+                const res = await fetch(`http://localhost:2000/resources?lesson=${this.lessonNumber}`);
+
+                if(!res.ok) throw new Error('Failed to fetch lesson');
+
+                this.conversation = await res.json();
+            }
+            catch(err){
+                console.error(err); alert('Failed to load lesson data');
+            }
+            finally{
+                this.loading = false;
+            }
+        },
+        nextEntry() {
+            if (this.currentEntry.actor === 'child' && this.vocabIndex < (this.currentEntry.questions?.length || 0)-1) {
+                this.vocabIndex++;
+                this.highlightSide = null;
+                return;
+            }
+
+            if (this.currentIndex < this.conversation.length - 1) {
+                this.currentIndex++;
+                this.vocabIndex = 0;
+                this.highlightSide = null;
+            }
+        },
+
+        prevEntry() {
+            if (this.currentEntry.actor === 'child' && this.vocabIndex>0){
+                this.vocabIndex--;
+                this.highlightSide = null;
+                return;
+            }
+
+            if (this.currentIndex>0){
+                this.currentIndex--;
+                this.vocabIndex = this.currentEntry.actor === 'child' ? (this.currentEntry.questions?.length || 1)-1 : 0;
+                this.highlightSide = null;
+            }
+        },
+        handleKeyPress(e) {
+            if (e.key === 'ArrowLeft') this.highlightSide = 'left';
+            else if (e.key === 'ArrowRight') this.highlightSide = 'right';
+        },
+    }
+});
+</script>
+
+</body>
+</html>
