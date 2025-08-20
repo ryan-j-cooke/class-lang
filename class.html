@@ -241,7 +241,7 @@
             >
                 <div class="left-card-bg">
 
-                    <img class="left-card-bg-img" src="./_deps/images/left-monkey.png" />
+                    <img class="left-card-bg-img" :src="highlightSide === 'left' ? `./_deps/images/left-monkey-face-${faceSide}.png` : './_deps/images/left-monkey.png'" />
 
                 </div>
 
@@ -252,12 +252,12 @@
             </div>
 
             <div class="word-card right-card"
-                :class="{highlight: highlightSide==='right'}"
-                @click="highlightSide='right'"
+                :class="{highlight: highlightSide === 'right'}"
+                @click="highlightSide = 'right'"
             >
                 <div class="right-card-bg">
 
-                    <img class="right-card-bg-img" src="./_deps/images/ele-right.png" />
+                    <img class="right-card-bg-img" :src="highlightSide === 'right' ? `./_deps/images/ele-right-face-${faceSide}.png` : './_deps/images/ele-right.png'" />
 
                 </div>
 
@@ -323,11 +323,24 @@ new Vue({
     el:'#app',
     data:{
         conversation: [],
-        currentIndex:0,
-        vocabIndex:0,
-        highlightSide:null,
-        loading:true,
-        lessonNumber:1
+        currentIndex: 0,
+        vocabIndex: 0,
+        highlightSide: null,
+        loading: true,
+        lessonNumber: 1,
+        faceSide: 0,
+        changeFaceTmr: null,
+        cardFaceSides: ['left', 'right'],
+    },
+    watch: {
+        highlightSide(to) {
+            console.log('[to]: ', to);
+            
+            if (this.cardFaceSides.includes(to)) {
+                this.toggleFace();
+            }
+            else this.stopChangeFaceTmr();
+        },
     },
     computed:{
         currentEntry(){
@@ -378,6 +391,21 @@ new Vue({
         this.fetchLesson();
     },
     methods:{
+        toggleFace() {
+            this.stopChangeFaceTmr();
+
+            this.changeFaceTmr = setInterval(() => {
+                if (this.faceSide < 1) {
+                    this.faceSide ++;
+                }
+                else {
+                    this.faceSide = 0;
+                }
+            }, 250);
+        },
+        stopChangeFaceTmr() {
+            if (this.changeFaceTmr) clearInterval(this.changeFaceTmr);
+        },
         async fetchLesson() {
             this.loading = true;
 
