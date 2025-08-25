@@ -70,7 +70,7 @@
             display: flex;
             justify-content: center;
             gap: 60px;
-            height: 250px;
+            height: 333px;
             align-items: stretch;
         }
 
@@ -172,7 +172,7 @@
         }
 
         .left-card-bg-img {
-            height: 100%;
+            height: 81%;
             width: auto;
         }
 
@@ -188,6 +188,37 @@
         .right-card-bg-img {
             height: 250px;
             width: auto;
+        }
+
+        .floating-controls {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+        }
+
+        .sound-toggle {
+            z-index: 9999;
+            border: 1px solid rgba(0,0,0,0.15);
+            background: white;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .sound-toggle:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.22);
+        }
+
+        .lesson-select {
+            padding: 6px 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,0,0,0.2);
+            background: white;
+            cursor: pointer;
         }
 
         @keyframes bounce {
@@ -257,7 +288,7 @@
             >
                 <div class="right-card-bg">
 
-                    <img class="right-card-bg-img" :src="highlightSide === 'right' ? `./_deps/images/ele-right-face-${faceSide}.png` : './_deps/images/ele-right.png'" />
+                    <img class="right-card-bg-img" :src="highlightSide === 'right' ? `./_deps/images/${rightSwitchSide ? 'quala' : 'ele'}-right-face-${faceSide}.png` : `./_deps/images/${rightSwitchSide ? 'quala' : 'ele'}-right.png`" />
 
                 </div>
 
@@ -269,12 +300,35 @@
 
         </div>
 
-        <!-- Navigation -->
         <div class="controls">
 
             <button class="left-btn" @click="prevEntry">Previous</button>
 
             <button class="right-btn" @click="nextEntry">Next</button>
+
+        </div>
+
+        <div class="floating-controls">
+
+            <select class="lesson-select" v-model="lessonNumber">
+
+                <option :key="i" :value="i" v-for="i in 10">
+
+                    Lesson {{ i }}
+
+                </option>
+
+            </select>
+
+            <button
+                class="sound-toggle"
+                :aria-pressed="disableSound"
+                :title="disableSound ? 'Sound off' : 'Sound on'"
+                @click="toggleSound()"
+            >
+                {{ disableSound ? '🔇' : '🔊' }}
+
+            </button>
 
         </div>
 
@@ -321,29 +375,17 @@ function connectToToDev() {
 
 new Vue({
     el:'#app',
-    data:{
-        conversation: [],
-        currentIndex: 0,
-        vocabIndex: 0,
-        highlightSide: null,
-        loading: true,
-        lessonNumber: 1,
-        faceSide: 0,
-        changeFaceTmr: null,
-        cardFaceSides: ['left', 'right'],
-    },
     watch: {
         highlightSide(to) {
-            console.log('[to]: ', to);
-            
             if (this.cardFaceSides.includes(to)) {
                 this.toggleFace();
             }
             else this.stopChangeFaceTmr();
         },
+        lessonNumber() { this.fetchLesson() },
     },
     computed:{
-        currentEntry(){
+        currentEntry() {
             return this.conversation[this.currentIndex] || {};
         },
         currentQuestion(){
@@ -365,19 +407,38 @@ new Vue({
             return {};
         },
     },
+    data:{
+        conversation: [],
+        currentIndex: 0,
+        vocabIndex: 0,
+        highlightSide: null,
+        loading: true,
+        lessonNumber: 2,
+        faceSide: 0,
+        changeFaceTmr: null,
+        cardFaceSides: ['left', 'right'],
+        voices: [],
+        thaiVoice: null,
+        disableSound: false,
+        rightSwitchSide: false,
+    },
     mounted(){
+        this.voices = window.speechSynthesis.getVoices();
+
+        this.thaiVoice = this.voices[46];
+
         connectToToDev();
 
 		document.addEventListener('keydown', (event) => {
 			// Check if Ctrl key is pressed
 			if (event.ctrlKey) {
 				switch (event.key) {
-					case "ArrowLeft":
+					case 'ArrowLeft':
 						event.preventDefault();
 						this.prevEntry();
 						break;
 
-					case "ArrowRight":
+					case 'ArrowRight':
 						event.preventDefault();
 						this.nextEntry();
 						break;
@@ -391,6 +452,31 @@ new Vue({
         this.fetchLesson();
     },
     methods:{
+        resetDefaults() {
+            this.currentIndex = 0;
+            this.vocabIndex = 0;
+            this.highlightSide = null;
+            this.faceSide = 0;
+        },
+        toggleSound() {
+            this.disableSound = !this.disableSound;
+        },
+        speak(text, lang = 'en-GB') {
+            if (!text || this.disableSound) return;
+
+            if (lang === 'en-GB') {
+                const utter = new SpeechSynthesisUtterance(text);
+                utter.lang = lang;
+                speechSynthesis.cancel();
+                return speechSynthesis.speak(utter);
+            }
+
+            // var u = new SpeechSynthesisUtterance();
+            // u.text = text;
+            // u.lang = 'th-TH';
+            // u.rate = 1.2;
+            // speechSynthesis.speak(u);
+        },
         toggleFace() {
             this.stopChangeFaceTmr();
 
@@ -409,21 +495,25 @@ new Vue({
         async fetchLesson() {
             this.loading = true;
 
-            try{
+            this.resetDefaults();
+
+            try {
                 const res = await fetch(`http://localhost:2000/resources?lesson=${this.lessonNumber}`);
 
-                if(!res.ok) throw new Error('Failed to fetch lesson');
+                if (!res.ok) throw new Error('Failed to fetch lesson');
 
                 this.conversation = await res.json();
             }
-            catch(err){
+            catch(err) {
                 console.error(err); alert('Failed to load lesson data');
             }
-            finally{
+            finally {
                 this.loading = false;
             }
         },
         nextEntry() {
+            this.rightSwitchSide =! this.rightSwitchSide;
+
             if (this.currentEntry.actor === 'child' && this.vocabIndex < (this.currentEntry.questions?.length || 0)-1) {
                 this.vocabIndex++;
                 this.highlightSide = null;
@@ -436,7 +526,6 @@ new Vue({
                 this.highlightSide = null;
             }
         },
-
         prevEntry() {
             if (this.currentEntry.actor === 'child' && this.vocabIndex>0){
                 this.vocabIndex--;
@@ -451,8 +540,14 @@ new Vue({
             }
         },
         handleKeyPress(e) {
-            if (e.key === 'ArrowLeft') this.highlightSide = 'left';
-            else if (e.key === 'ArrowRight') this.highlightSide = 'right';
+            if (e.key === 'ArrowLeft') {
+                this.highlightSide = 'left';
+                this.speak(this.currentQuestion.left?.ml);
+            }
+            else if (e.key === 'ArrowRight') {
+                this.highlightSide = 'right';
+                this.speak(this.currentQuestion.right?.ml, 'th');
+            }
         },
     }
 });
